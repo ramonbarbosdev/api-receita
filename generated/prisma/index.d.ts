@@ -1037,9 +1037,9 @@ export namespace Prisma {
   export type ReceitaGroupByOutputType = {
     id: number
     title: string
-    description: string | null
-    task: string
-    tags: string
+    description: string
+    task: string | null
+    tags: string | null
     _count: ReceitaCountAggregateOutputType | null
     _avg: ReceitaAvgAggregateOutputType | null
     _sum: ReceitaSumAggregateOutputType | null
@@ -1101,9 +1101,9 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: number
       title: string
-      description: string | null
-      task: string
-      tags: string
+      description: string
+      task: string | null
+      tags: string | null
     }, ExtArgs["result"]["receita"]>
     composites: {}
   }
@@ -2003,17 +2003,17 @@ export namespace Prisma {
     NOT?: ReceitaWhereInput | ReceitaWhereInput[]
     id?: IntFilter<"Receita"> | number
     title?: StringFilter<"Receita"> | string
-    description?: StringNullableFilter<"Receita"> | string | null
-    task?: StringFilter<"Receita"> | string
-    tags?: StringFilter<"Receita"> | string
+    description?: StringFilter<"Receita"> | string
+    task?: StringNullableFilter<"Receita"> | string | null
+    tags?: StringNullableFilter<"Receita"> | string | null
   }
 
   export type ReceitaOrderByWithRelationInput = {
     id?: SortOrder
     title?: SortOrder
-    description?: SortOrderInput | SortOrder
-    task?: SortOrder
-    tags?: SortOrder
+    description?: SortOrder
+    task?: SortOrderInput | SortOrder
+    tags?: SortOrderInput | SortOrder
   }
 
   export type ReceitaWhereUniqueInput = Prisma.AtLeast<{
@@ -2022,17 +2022,17 @@ export namespace Prisma {
     OR?: ReceitaWhereInput[]
     NOT?: ReceitaWhereInput | ReceitaWhereInput[]
     title?: StringFilter<"Receita"> | string
-    description?: StringNullableFilter<"Receita"> | string | null
-    task?: StringFilter<"Receita"> | string
-    tags?: StringFilter<"Receita"> | string
+    description?: StringFilter<"Receita"> | string
+    task?: StringNullableFilter<"Receita"> | string | null
+    tags?: StringNullableFilter<"Receita"> | string | null
   }, "id">
 
   export type ReceitaOrderByWithAggregationInput = {
     id?: SortOrder
     title?: SortOrder
-    description?: SortOrderInput | SortOrder
-    task?: SortOrder
-    tags?: SortOrder
+    description?: SortOrder
+    task?: SortOrderInput | SortOrder
+    tags?: SortOrderInput | SortOrder
     _count?: ReceitaCountOrderByAggregateInput
     _avg?: ReceitaAvgOrderByAggregateInput
     _max?: ReceitaMaxOrderByAggregateInput
@@ -2046,62 +2046,62 @@ export namespace Prisma {
     NOT?: ReceitaScalarWhereWithAggregatesInput | ReceitaScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Receita"> | number
     title?: StringWithAggregatesFilter<"Receita"> | string
-    description?: StringNullableWithAggregatesFilter<"Receita"> | string | null
-    task?: StringWithAggregatesFilter<"Receita"> | string
-    tags?: StringWithAggregatesFilter<"Receita"> | string
+    description?: StringWithAggregatesFilter<"Receita"> | string
+    task?: StringNullableWithAggregatesFilter<"Receita"> | string | null
+    tags?: StringNullableWithAggregatesFilter<"Receita"> | string | null
   }
 
   export type ReceitaCreateInput = {
     title: string
-    description?: string | null
-    task: string
-    tags: string
+    description: string
+    task?: string | null
+    tags?: string | null
   }
 
   export type ReceitaUncheckedCreateInput = {
     id?: number
     title: string
-    description?: string | null
-    task: string
-    tags: string
+    description: string
+    task?: string | null
+    tags?: string | null
   }
 
   export type ReceitaUpdateInput = {
     title?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    task?: StringFieldUpdateOperationsInput | string
-    tags?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    task?: NullableStringFieldUpdateOperationsInput | string | null
+    tags?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ReceitaUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    task?: StringFieldUpdateOperationsInput | string
-    tags?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    task?: NullableStringFieldUpdateOperationsInput | string | null
+    tags?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ReceitaCreateManyInput = {
     id?: number
     title: string
-    description?: string | null
-    task: string
-    tags: string
+    description: string
+    task?: string | null
+    tags?: string | null
   }
 
   export type ReceitaUpdateManyMutationInput = {
     title?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    task?: StringFieldUpdateOperationsInput | string
-    tags?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    task?: NullableStringFieldUpdateOperationsInput | string | null
+    tags?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ReceitaUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    task?: StringFieldUpdateOperationsInput | string
-    tags?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    task?: NullableStringFieldUpdateOperationsInput | string | null
+    tags?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type IntFilter<$PrismaModel = never> = {

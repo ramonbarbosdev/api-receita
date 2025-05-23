@@ -17,7 +17,7 @@ datasource db {
 model Receita{
   id Int @default(autoincrement()) @id
   title String 
-  description String? 
-  task String
-  tags String
+  description String
+  task String?
+  tags String?
 }
