@@ -7,11 +7,11 @@ export class ReceitaService {
     
     constructor(private prismaService: PrismaService){}
 
-    async getReceitaId(id: number)
+    async getReceitaId(id: string)
     {
         const receitas = await this.prismaService.receita.findUnique(
             {
-                where: { id}
+                where: { id: String(id) }
             }
         );
         return receitas;
@@ -29,25 +29,25 @@ export class ReceitaService {
         return object;
     }
 
-    async updateReceita(id: number, data: ReceitaDTO)
+    async updateReceita(id: string, data: ReceitaDTO)
     {
         const object = await this.prismaService.receita.update({
-            where: { id: Number(id) },
+            where: { id: String(id) },
             data: {
-            title: data.title,
-            description: data.description,
-            task: Array.isArray(data.task) ? data.task : [], // Garante array
-            tags: Array.isArray(data.tags) ? data.tags : [], // Garante array
+                title: data.title,
+                description: data.description,
+                task: Array.isArray(data.task) ? data.task : [], // Garante array
+                tags: Array.isArray(data.tags) ? data.tags : [], // Garante array
             },
         });
 
         return object;
     }
 
-    async deleteReceita(id: number)
+    async deleteReceita(id: string)
     {
         const object =   await this.prismaService.receita.delete({
-            where: {id}
+            where: { id: String(id) }
         })
 
         const res = { message: "Deleted with success!", }

@@ -12,7 +12,7 @@ export class ReceitaController {
     @Get(':id')
     async getReceitaById(@Param('id') id: string)
     {
-        const res = await this.receitaService.getReceitaId(+id);
+        const res = await this.receitaService.getReceitaId(id);
         return res;
     }
 
@@ -31,14 +31,14 @@ export class ReceitaController {
     }
 
     @Put(':id')
-    async updateReceita(@Param('id', ParseIntPipe) id: number, @Body() receita: ReceitaDTO)
+    async updateReceita(@Param('id') id: string, @Body() receita: ReceitaDTO)
     {
          const res = await this.receitaService.updateReceita(id, receita);
          return res;
     }
 
     @Delete(':id')
-    async deleteReceita(@Param('id', ParseIntPipe) id: number)
+    async deleteReceita(@Param('id') id: string)
     {
         const res = await this.receitaService.deleteReceita(id);
         return res;
