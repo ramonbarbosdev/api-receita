@@ -893,16 +893,12 @@ export namespace Prisma {
     id: number | null
     title: string | null
     description: string | null
-    task: string | null
-    tags: string | null
   }
 
   export type ReceitaMaxAggregateOutputType = {
     id: number | null
     title: string | null
     description: string | null
-    task: string | null
-    tags: string | null
   }
 
   export type ReceitaCountAggregateOutputType = {
@@ -927,16 +923,12 @@ export namespace Prisma {
     id?: true
     title?: true
     description?: true
-    task?: true
-    tags?: true
   }
 
   export type ReceitaMaxAggregateInputType = {
     id?: true
     title?: true
     description?: true
-    task?: true
-    tags?: true
   }
 
   export type ReceitaCountAggregateInputType = {
@@ -1038,8 +1030,8 @@ export namespace Prisma {
     id: number
     title: string
     description: string
-    task: string | null
-    tags: string | null
+    task: string[]
+    tags: string[]
     _count: ReceitaCountAggregateOutputType | null
     _avg: ReceitaAvgAggregateOutputType | null
     _sum: ReceitaSumAggregateOutputType | null
@@ -1102,8 +1094,8 @@ export namespace Prisma {
       id: number
       title: string
       description: string
-      task: string | null
-      tags: string | null
+      task: string[]
+      tags: string[]
     }, ExtArgs["result"]["receita"]>
     composites: {}
   }
@@ -1530,8 +1522,8 @@ export namespace Prisma {
     readonly id: FieldRef<"Receita", 'Int'>
     readonly title: FieldRef<"Receita", 'String'>
     readonly description: FieldRef<"Receita", 'String'>
-    readonly task: FieldRef<"Receita", 'String'>
-    readonly tags: FieldRef<"Receita", 'String'>
+    readonly task: FieldRef<"Receita", 'String[]'>
+    readonly tags: FieldRef<"Receita", 'String[]'>
   }
     
 
@@ -1939,14 +1931,6 @@ export namespace Prisma {
   export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
 
 
-  export const NullsOrder: {
-    first: 'first',
-    last: 'last'
-  };
-
-  export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
-
-
   /**
    * Field references
    */
@@ -2004,16 +1988,16 @@ export namespace Prisma {
     id?: IntFilter<"Receita"> | number
     title?: StringFilter<"Receita"> | string
     description?: StringFilter<"Receita"> | string
-    task?: StringNullableFilter<"Receita"> | string | null
-    tags?: StringNullableFilter<"Receita"> | string | null
+    task?: StringNullableListFilter<"Receita">
+    tags?: StringNullableListFilter<"Receita">
   }
 
   export type ReceitaOrderByWithRelationInput = {
     id?: SortOrder
     title?: SortOrder
     description?: SortOrder
-    task?: SortOrderInput | SortOrder
-    tags?: SortOrderInput | SortOrder
+    task?: SortOrder
+    tags?: SortOrder
   }
 
   export type ReceitaWhereUniqueInput = Prisma.AtLeast<{
@@ -2023,16 +2007,16 @@ export namespace Prisma {
     NOT?: ReceitaWhereInput | ReceitaWhereInput[]
     title?: StringFilter<"Receita"> | string
     description?: StringFilter<"Receita"> | string
-    task?: StringNullableFilter<"Receita"> | string | null
-    tags?: StringNullableFilter<"Receita"> | string | null
+    task?: StringNullableListFilter<"Receita">
+    tags?: StringNullableListFilter<"Receita">
   }, "id">
 
   export type ReceitaOrderByWithAggregationInput = {
     id?: SortOrder
     title?: SortOrder
     description?: SortOrder
-    task?: SortOrderInput | SortOrder
-    tags?: SortOrderInput | SortOrder
+    task?: SortOrder
+    tags?: SortOrder
     _count?: ReceitaCountOrderByAggregateInput
     _avg?: ReceitaAvgOrderByAggregateInput
     _max?: ReceitaMaxOrderByAggregateInput
@@ -2047,61 +2031,61 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"Receita"> | number
     title?: StringWithAggregatesFilter<"Receita"> | string
     description?: StringWithAggregatesFilter<"Receita"> | string
-    task?: StringNullableWithAggregatesFilter<"Receita"> | string | null
-    tags?: StringNullableWithAggregatesFilter<"Receita"> | string | null
+    task?: StringNullableListFilter<"Receita">
+    tags?: StringNullableListFilter<"Receita">
   }
 
   export type ReceitaCreateInput = {
     title: string
     description: string
-    task?: string | null
-    tags?: string | null
+    task?: ReceitaCreatetaskInput | string[]
+    tags?: ReceitaCreatetagsInput | string[]
   }
 
   export type ReceitaUncheckedCreateInput = {
     id?: number
     title: string
     description: string
-    task?: string | null
-    tags?: string | null
+    task?: ReceitaCreatetaskInput | string[]
+    tags?: ReceitaCreatetagsInput | string[]
   }
 
   export type ReceitaUpdateInput = {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
-    task?: NullableStringFieldUpdateOperationsInput | string | null
-    tags?: NullableStringFieldUpdateOperationsInput | string | null
+    task?: ReceitaUpdatetaskInput | string[]
+    tags?: ReceitaUpdatetagsInput | string[]
   }
 
   export type ReceitaUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
-    task?: NullableStringFieldUpdateOperationsInput | string | null
-    tags?: NullableStringFieldUpdateOperationsInput | string | null
+    task?: ReceitaUpdatetaskInput | string[]
+    tags?: ReceitaUpdatetagsInput | string[]
   }
 
   export type ReceitaCreateManyInput = {
     id?: number
     title: string
     description: string
-    task?: string | null
-    tags?: string | null
+    task?: ReceitaCreatetaskInput | string[]
+    tags?: ReceitaCreatetagsInput | string[]
   }
 
   export type ReceitaUpdateManyMutationInput = {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
-    task?: NullableStringFieldUpdateOperationsInput | string | null
-    tags?: NullableStringFieldUpdateOperationsInput | string | null
+    task?: ReceitaUpdatetaskInput | string[]
+    tags?: ReceitaUpdatetagsInput | string[]
   }
 
   export type ReceitaUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
-    task?: NullableStringFieldUpdateOperationsInput | string | null
-    tags?: NullableStringFieldUpdateOperationsInput | string | null
+    task?: ReceitaUpdatetaskInput | string[]
+    tags?: ReceitaUpdatetagsInput | string[]
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -2130,24 +2114,12 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
-  export type StringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    mode?: QueryMode
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
-  }
-
-  export type SortOrderInput = {
-    sort: SortOrder
-    nulls?: NullsOrder
+  export type StringNullableListFilter<$PrismaModel = never> = {
+    equals?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    has?: string | StringFieldRefInput<$PrismaModel> | null
+    hasEvery?: string[] | ListStringFieldRefInput<$PrismaModel>
+    hasSome?: string[] | ListStringFieldRefInput<$PrismaModel>
+    isEmpty?: boolean
   }
 
   export type ReceitaCountOrderByAggregateInput = {
@@ -2166,16 +2138,12 @@ export namespace Prisma {
     id?: SortOrder
     title?: SortOrder
     description?: SortOrder
-    task?: SortOrder
-    tags?: SortOrder
   }
 
   export type ReceitaMinOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
     description?: SortOrder
-    task?: SortOrder
-    tags?: SortOrder
   }
 
   export type ReceitaSumOrderByAggregateInput = {
@@ -2216,30 +2184,26 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
-  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    mode?: QueryMode
-    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedStringNullableFilter<$PrismaModel>
-    _max?: NestedStringNullableFilter<$PrismaModel>
+  export type ReceitaCreatetaskInput = {
+    set: string[]
+  }
+
+  export type ReceitaCreatetagsInput = {
+    set: string[]
   }
 
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
 
-  export type NullableStringFieldUpdateOperationsInput = {
-    set?: string | null
+  export type ReceitaUpdatetaskInput = {
+    set?: string[]
+    push?: string | string[]
+  }
+
+  export type ReceitaUpdatetagsInput = {
+    set?: string[]
+    push?: string | string[]
   }
 
   export type IntFieldUpdateOperationsInput = {
@@ -2273,20 +2237,6 @@ export namespace Prisma {
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     not?: NestedStringFilter<$PrismaModel> | string
-  }
-
-  export type NestedStringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
@@ -2331,34 +2281,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
-  }
-
-  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedStringNullableFilter<$PrismaModel>
-    _max?: NestedStringNullableFilter<$PrismaModel>
-  }
-
-  export type NestedIntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
 

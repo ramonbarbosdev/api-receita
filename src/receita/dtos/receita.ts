@@ -1,5 +1,5 @@
 
-import { IsNotEmpty } from 'class-validator'
+import { IsArray, IsNotEmpty, IsString } from 'class-validator'
 
 export class ReceitaDTO
 {   
@@ -9,7 +9,11 @@ export class ReceitaDTO
     @IsNotEmpty()
     description: string;
 
-    task: string;
+    @IsArray()
+    @IsString({ each: true })
+    task: string[];
 
-    tags: string;
+    @IsArray()
+    @IsString({ each: true })
+    tags: string[];
 }
