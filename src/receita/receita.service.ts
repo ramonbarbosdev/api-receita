@@ -28,20 +28,21 @@ export class ReceitaService {
         const object = await this.prismaService.receita.create({data: data as any,});
         return object;
     }
-    async updateReceita(id: number, data: ReceitaDTO) {
-  const object = await this.prismaService.receita.update({
-    where: { id: Number(id) },
-    data: {
-      title: data.title,
-      description: data.description,
-      task: Array.isArray(data.task) ? data.task : [], // Garante array
-      tags: Array.isArray(data.tags) ? data.tags : [], // Garante array
-    },
-  });
 
-  return object;
-}
+    async updateReceita(id: number, data: ReceitaDTO)
+    {
+        const object = await this.prismaService.receita.update({
+            where: { id: Number(id) },
+            data: {
+            title: data.title,
+            description: data.description,
+            task: Array.isArray(data.task) ? data.task : [], // Garante array
+            tags: Array.isArray(data.tags) ? data.tags : [], // Garante array
+            },
+        });
 
+        return object;
+    }
 
     async deleteReceita(id: number)
     {
